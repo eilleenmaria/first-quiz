@@ -14,22 +14,27 @@
 # Read the test suite to know the values that these functions should return.
 
 def get_city_temperature(city):
-   if city == "Quito":
-      return 22
-   if city == "Sao Paulo":
-      return 17
-   if city == "San Francisco":
-      return 16
-
-def get_city_weather(city):
-
-  sky_condition = None
-
-  if city == "Sao Paulo":
-     sky_condition = "cloudy"
-  elif city == "New York":
-     sky_condition = "rainy"
-
-  temperature = get_city_temperature(city)
-
-  return str(temperature) + " degrees and " + sky_condition
+   match city:
+      case "Quito" :
+            return 22
+      case "Sao Paulo":
+            return 17
+      case "San Francisco":
+            return 16
+      case "New York":
+            return 14
+      case _:
+            return None
+   
+def get_city_weather(city): 
+   match city:
+      case "Sao Paulo":
+            sky_condition= "cloudy"
+      case "New York":
+            sky_condition= "rainy"
+      case "Quito":
+            sky_condition = "sunny" 
+      case _:
+            sky_condition= "empty"
+   temperature = get_city_temperature(city)
+   return str(temperature) + " degrees and " + sky_condition
